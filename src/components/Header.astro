@@ -1,0 +1,82 @@
+---
+import logo from "../img/logo-g.png";
+---
+
+<header id="header" class="header container glass">
+    <p class="header__title">
+        <a href="/"><img src={logo} alt="logo"></a>
+    </p>
+    <nav class="header__nav-menu">
+        <ul class="header__list">
+            <li class="header__link">
+                <a href="/header">Work</a>
+            </li>
+            <li class="header__link">
+                <a href="/about">About</a>
+            </li>
+            <li class="header__link">
+                <a href="/portfolio">Resume</a>
+            </li>
+            <li class="header__link">
+                <a href="/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header{
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .header__title{
+        font-size: 1.8rem;
+        color: var(--white);
+        margin: 0;
+    }
+
+    .header__title a{
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+    }
+
+    .header__title a img{
+        width: 64px;
+    }
+
+    .header__title a{
+       text-decoration: none;
+       color: var(--white);
+    }
+
+    .header__list{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 24px;
+    }
+
+    .header__link{
+        list-style: none;
+    }
+
+    .header__link a{
+        text-decoration: none;
+        color: var(--white);
+        text-transform: uppercase;
+    }
+
+   
+
+
+
+
+</style>

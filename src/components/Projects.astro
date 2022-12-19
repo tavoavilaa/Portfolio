@@ -1,0 +1,38 @@
+---
+import logo from "../img/logo-g.png";
+---
+
+<section class="container-fluid projects">
+   <div class="glass projects__card">
+        <img class="projects__img" src="https://i.imgur.com/NkNKvo1.jpeg" alt="">
+   </div>
+   <div class="glass projects__card">
+       <img class="projects__img"  src="https://i.imgur.com/NExJlZe.jpeg" alt="">
+   </div>
+   <div class="glass projects__card">
+        <img class="projects__img"  src="https://i.imgur.com/GYGGajV.jpeg" alt="">
+   </div>
+</section>
+
+<style>
+   .projects{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
+        gap: 24px;
+        box-sizing: border-box;
+        padding: 0;
+   }
+
+   .projects__img{
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+   }
+
+   .projects__card{
+        padding-bottom: 40px;
+   }
+
+
+
+</style>
