@@ -1,5 +1,9 @@
 ---
 import logo from "../img/logo-g.png";
+import cv from "../img/CV-Gustavo-Avila.pdf";
+
+let pathName = Astro.url.pathname;
+
 ---
 
 <header id="header" class="header container glass">
@@ -9,16 +13,16 @@ import logo from "../img/logo-g.png";
     <nav class="header__nav-menu">
         <ul class="header__list">
             <li class="header__link">
-                <a href="/header">Work</a>
+                <a class={pathName === '/' ? 'link-active' : ''} href="/">Work</a>
             </li>
             <li class="header__link">
-                <a href="/about">About</a>
+                <a class={pathName === '/about' ? 'link-active' : ''} href="/about">About</a>
             </li>
             <li class="header__link">
-                <a href="/portfolio">Resume</a>
+                <a rel="noopener noreferrer" target="_blank" href={cv}>Resume</a>
             </li>
             <li class="header__link">
-                <a href="/contact">Contact</a>
+                <a class={pathName === '/contact' ? 'link-active' : ''} href="/contact">Contact</a>
             </li>
         </ul>
     </nav>
@@ -72,9 +76,23 @@ import logo from "../img/logo-g.png";
         text-decoration: none;
         color: var(--white);
         text-transform: uppercase;
+        transition: all .3s ease;
     }
 
-   
+    .header__link a:hover{
+        text-shadow: 0 0 5px #fff6ff, 0 0 8px #fff6ff;
+        transition: all .3s ease;
+    }
+
+    .link-active{
+        color: var(--primary) !important;
+        border-bottom: 1px solid var(--secundary);
+        padding: 8px 12px;
+    }
+
+    .link-active:hover{
+        text-shadow: 0 0 5px var(--terciary), 0 0 8px var(--terciary) !important;
+    }
 
 
 

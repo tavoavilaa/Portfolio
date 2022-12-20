@@ -1,38 +1,133 @@
 ---
-import logo from "../img/logo-g.png";
+import P1 from "../img/Avaya-Gitex-2021.jpg";
+import P2 from "../img/Avaya-Spaces-OnBoarding.jpg";
+import P3 from "../img/citas-veterinaria.jpg";
+import P4 from "../img/Cotizador-Seguros.jpg";
+import P5 from "../img/Cotizador-Cripto.jpg";
+import P6 from "../img/PokeGame.jpg";
+import P7 from "../img/Avaya-Mexico.jpg";
+import P8 from "../img/real-state-LP.jpg";
+import P9 from "../img/toDo.jpg";
+
+import html from "../img/html.png";
+import css from "../img/css.png";
+import js from "../img/js.png";
+import boostrap from "../img/boostrap.png";
+import tailwind from "../img/tailwind.png";
+import react from "../img/react.png";
+import vue from "../img/vue.png";
+
+const data = [
+  {
+    name: "Avaya Gitex 2021",
+    image: P1,
+    language: [html, css, js, boostrap],
+    url: "https://splendorous-sundae-df8790.netlify.app"
+  },
+  {
+    name: "Avaya Spaces Landing Page",
+    image: P2,
+    language: [html, css, js, boostrap],
+    url: "https://lambent-custard-4f52d2.netlify.app"
+  },
+  {
+    name: "Veterinary",
+    image: P3,
+    language: [html, css, js, tailwind, react],
+    url: "https://dulcet-florentine-55ca2e.netlify.app"
+  },
+  {
+    name: "Insurance",
+    image: P4,
+    language: [html, css, js, tailwind, react],
+    url: "https://tubular-cassata-010a65.netlify.app"
+  },
+  {
+    name: "Cripto",
+    image: P5,
+    language: [html, css, js, tailwind, react],
+    url: "https://luminous-cascaron-47daa8.netlify.app"
+  },
+  {
+    name: "PokeGame",
+    image: P6,
+    language: [html, css, js, vue],
+    url: "https://chic-belekoy-9dad76.netlify.app"
+  },
+  {
+    name: "Avaya Mexico Tour",
+    image: P7,
+    language: [html, css, js, boostrap],
+    url: "https://ornate-starship-0f56d8.netlify.app"
+  },
+  {
+    name: "Real State Landing Page",
+    image: P8,
+    language: [html, css, js, boostrap],
+    url: "https://determined-lewin-ee6902.netlify.app"
+  },
+  {
+    name: "React ToDo List",
+    image: P9,
+    language: [html, css, js, react],
+    url: "https://dazzling-croissant-266605.netlify.app"
+  },
+];
 ---
 
 <section class="container-fluid projects">
-   <div class="glass projects__card">
-        <img class="projects__img" src="https://i.imgur.com/NkNKvo1.jpeg" alt="">
-   </div>
-   <div class="glass projects__card">
-       <img class="projects__img"  src="https://i.imgur.com/NExJlZe.jpeg" alt="">
-   </div>
-   <div class="glass projects__card">
-        <img class="projects__img"  src="https://i.imgur.com/GYGGajV.jpeg" alt="">
-   </div>
+  {
+    data?.map((project) => (
+      <div class="glass projects__card">
+        <img class="projects__img" src={project.image} alt={project.name} />
+        <h3 class="projects__title">{project.name}</h3>
+        <div class="projects__info">
+          <div class="projects__languages">
+            <img class="projects__icon" src={project.language[0]} alt="" />
+            <img class="projects__icon" src={project.language[1]} alt="" />
+            <img class="projects__icon" src={project.language[2]} alt="" />
+            <img class="projects__icon" src={project.language[3]} alt="" />
+            {project.language[4] && <img class="projects__icon" src={project.language[4]} alt="" />}
+          </div>
+          <a href={project.url} class="btn__primary" rel="noopener noreferrer" target="_blank">View more →</a>
+        </div>
+      </div>
+    ))
+  }
 </section>
 
 <style>
-   .projects{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: space-between;
-        gap: 24px;
-        box-sizing: border-box;
-        padding: 0;
-   }
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    gap: 24px;
+    box-sizing: border-box;
+    padding: 0;
+  }
 
-   .projects__img{
+  .projects__img {
     width: 100%;
     border-radius: 16px 16px 0 0;
-   }
+  }
 
-   .projects__card{
-        padding-bottom: 40px;
-   }
+  .projects__card {
+    padding-bottom: 40px;
+  }
+  .projects__title {
+    color: var(--white);
+    text-align: center;
+  }
 
+  .projects__info{
+    text-align: center;
+  }
 
+  .projects__languages{
+    margin-bottom: 24px;
+  }
 
+  .projects__icon {
+    width: 32px;
+  }
 </style>
