@@ -1,6 +1,8 @@
 ---
 import logo from "../img/logo-g.png";
 import cv from "../img/CV-Gustavo-Avila.pdf";
+import linkedin from "../img/linkedin.png";
+import github from "../img/github.png";
 
 let pathName = Astro.url.pathname;
 
@@ -22,10 +24,18 @@ let pathName = Astro.url.pathname;
                 <a rel="noopener noreferrer" target="_blank" href={cv}>Resume</a>
             </li>
             <li class="header__link">
-                <a class={pathName === '/contact' ? 'link-active' : ''} href="/contact">Contact</a>
+                <a class={pathName === '/contact' ? 'link-active' : ''} href="mailto:info.gustavoavila@gmail.com"  rel="noopener noreferrer" target="_blank">Contact</a>
             </li>
         </ul>
     </nav>
+    <div class="header__rrss">
+        <a href="https://www.linkedin.com/in/gustavo-avila-2a153311b/" rel="noopener noreferrer" target="_blank">
+            <img src={linkedin} alt="">
+        </a>
+        <a href="https://github.com/tavoavilaa" rel="noopener noreferrer" target="_blank">
+            <img src={github} alt="">
+        </a>
+    </div>
 </header>
 
 <style>
@@ -94,7 +104,16 @@ let pathName = Astro.url.pathname;
         text-shadow: 0 0 5px var(--terciary), 0 0 8px var(--terciary) !important;
     }
 
+    .header__rrss a img{
+        width: 40px;
+        margin: 0 4px;
+        transition: transform .5s ease;
+    }
 
+    .header__rrss a img:hover{
+        transform: scale(1.1);
+        transition: transform .5s ease;
+    }
 
 
 </style>
