@@ -41,13 +41,13 @@ let pathName = Astro.url.pathname;
                 <a class={pathName === '/' ? 'link-active' : ''} href="/">Work</a>
             </li>
             <li class="header__link">
-                <a class={pathName === '/about' ? 'link-active' : ''} href="/about">About</a>
+                <a class={pathName.includes('about') ? 'link-active' : ''} href="/about">About</a>
             </li>
             <li class="header__link">
                 <a rel="noopener noreferrer" target="_blank" href={cv}>Resume</a>
             </li>
             <li class="header__link">
-                <a class={pathName === '/contact' ? 'link-active' : ''} href="mailto:info.gustavoavila@gmail.com"  rel="noopener noreferrer" target="_blank">Contact</a>
+                <a href="mailto:info.gustavoavila@gmail.com"  rel="noopener noreferrer" target="_blank">Contact</a>
             </li>
         </ul>
 
