@@ -1,0 +1,101 @@
+---
+import avatar from '../img/avatar.png';
+import frontend from '../img/meta-badge.png';
+import ibm from '../img/ibm-badge.png';
+
+---
+
+<section class="about container glass animate__animated animate__slideInRight">
+    <div>
+        <img class="about__img animate__animated animate__fadeIn animate__delay-2s	4s animate__slower" src={avatar} alt="Hero character">
+    </div>
+    <div class="about__title">
+        
+        <h1 class="animate__animated animate__fadeInUp animate__delay-1s	1s">HEY THERE!</h1>
+
+        <p>I am a front-end developer with experience in interface design, working remotely for Avaya from Bogota. I studied computer engineering and advertising in Venezuela graduating from the latter. I am specialized in the interaction that users have with the web platform, from its design to its development as well as usability, performance, and accessibility.</p>
+
+        <p>I am passionate about digital transformation, and multimedia experiences such as VR, AR, and mobile development.</p>
+
+        <p>When I'm not developing, you can find me jumping rope at the gym 💪🏽, playing Valorant 🎮, or watching soccer ⚽️.</p>
+
+        <div class="about__badge">
+            <img class="about__badge__icon" src={frontend} alt="meta frontend developer badge">
+            <img class="about__badge__icon" src={ibm} alt="ibm fullstack developer badge">
+        </div>
+    </div>
+</section>
+
+<style>
+    .about{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 24px;
+        padding-bottom: 0;
+    }
+
+    @media (max-width: 991.98px){
+    	.about{
+            flex-direction: column;
+        }
+    }
+
+    .about__title h1{
+        font-size: 3rem;
+        color: var(--white);
+        margin: 0;
+       
+    }
+
+    @media (max-width: 991.98px){
+    	.about__title h1{
+            text-align: center;
+        }
+    }
+
+    .about__title p{
+        font-size: 1.1rem;
+        color: var(--white);
+        margin: 16px 0;
+        font-weight: 200;
+        line-height: 24px;
+       
+    }
+
+    .about__img{
+        max-width: 500px;
+        align-self: flex-end;
+    }
+
+    @media (max-width: 991.98px){
+    	.about__img{
+        max-width: 300px;
+        align-self: flex-end;
+        }
+    }
+
+    .about__badge{
+        display: flex;
+        gap: 16px;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 991.98px){
+    	.about__badge{
+           justify-content: center;
+           margin-bottom: 40px; 
+        }
+    }
+
+    .about__badge__icon{
+        width: 80px;
+        border-radius: 4px;
+
+    }
+
+
+
+
+   
+</style>

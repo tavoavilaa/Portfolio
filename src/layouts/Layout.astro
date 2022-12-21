@@ -1,8 +1,6 @@
 ---
 import favicon from "../img/favicon.ico";
-import background from "../img/hero-bg.jpg";
 import Header from "../components/Header.astro";
-import Main from "../components/Main.astro";
 import Footer from "../components/Footer.astro";
 
 export interface Props {
@@ -22,6 +20,10 @@ const { title, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description}>
 		<title>{title}</title>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
 	</head>
 	<body>
 		<div class="background">
@@ -72,7 +74,7 @@ const { title, description } = Astro.props;
 	}
 
 	body{
-		background-image: url("../img/hero-bg.jpg");
+		background-color: #121212;
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -94,6 +96,16 @@ const { title, description } = Astro.props;
 		padding-right: 96px;
 		box-sizing: border-box;
 	}
+
+    @media (max-width: 991.98px){
+    	.container, .container-fluid{
+		width: 90% !important;
+		margin: 0 auto;
+		padding-left: 40px;
+		padding-right: 40px;
+		box-sizing: border-box;
+	    }
+    }
 
 	.container-fluid{
 		width: 80%;
@@ -253,6 +265,12 @@ const { title, description } = Astro.props;
 	text-decoration: none;
     }
 
+    @media (max-width: 991.98px){
+    	.btn__primary{
+            text-align: center;
+        }
+    }
+
     .btn__primary:hover {
     background: var(--primary);
     box-shadow: 0 0 30px 5px rgba(0, 236, 157, 0.815);
@@ -327,6 +345,12 @@ const { title, description } = Astro.props;
     -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 	text-decoration: none;
+    }
+
+    @media (max-width: 991.98px){
+    	.btn__secundary{
+            text-align: center;
+        }
     }
 
     .btn__secundary:hover {

@@ -8,7 +8,6 @@ import P6 from "../img/PokeGame.jpg";
 import P7 from "../img/Avaya-Mexico.jpg";
 import P8 from "../img/real-state-LP.jpg";
 import P9 from "../img/toDo.jpg";
-
 import html from "../img/html.png";
 import css from "../img/css.png";
 import js from "../img/js.png";
@@ -16,6 +15,8 @@ import boostrap from "../img/boostrap.png";
 import tailwind from "../img/tailwind.png";
 import react from "../img/react.png";
 import vue from "../img/vue.png";
+
+
 
 const data = [
   {
@@ -75,7 +76,7 @@ const data = [
 ];
 ---
 
-<section class="container-fluid projects">
+<section class="container-fluid projects animate__animated animate__slideInUp animate__delay-2s	3s">
   {
     data?.map((project) => (
       <div class="glass projects__card">
@@ -104,6 +105,12 @@ const data = [
     gap: 24px;
     box-sizing: border-box;
     padding: 0;
+  }
+
+  @media (max-width: 991.98px){
+  	.projects {
+      grid-template-columns: 1fr;
+    }
   }
 
   .projects__img {
