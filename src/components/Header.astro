@@ -80,14 +80,14 @@ let lastWord = pathName.split("/").pop()
             <li class="header__link">
                 <a 
                 class={
-                pathName === '/' || pathName === home ? 'link-active' : ''
+                pathName === '/' || pathName.includes('es')  ? 'link-active' : ''
                 } 
                 href={home}>{links[0]}
             </a>
             </li>
             <li class="header__link">
                 <a class={
-                    pathName === about || pathName === about ? 'link-active' : ''
+                    pathName.includes("about") || pathName.includes("sobre-mi") ? 'link-active' : ''
                 } 
                 href={about}>{links[1]}
             </a>
