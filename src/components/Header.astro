@@ -127,7 +127,7 @@ let pathName = Astro.url.pathname;
         </div>
             <select>
                 <option class="en-select" value={
-                    pathName === '/about'
+                    pathName.includes('/about')
                     ? '/about'
                     : pathName === '/sobre-mi'
                     ? '/about'
@@ -136,9 +136,9 @@ let pathName = Astro.url.pathname;
                     : '/'
                 }>EN</option>
                 <option class="es-select" value={
-                    pathName === '/about'
+                    pathName.includes('/about')
                     ? '/sobre-mi'
-                    : pathName === '/sobre-mi'
+                    : pathName.includes('/sobre-mi')
                     ? '/sobre-mi'
                     : pathName === '/'
                     ? '/es'
