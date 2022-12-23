@@ -82,7 +82,7 @@ let lastWord = pathName.split("/").pop()
                 class={
                 pathName === '/'
                 ? 'link-active'
-                : pathName === 'https://portfolio-gustavo-alpha.vercel.app/es'
+                : pathName === home
                 ? 'link-active'
                 : ''
                 } 
@@ -91,9 +91,9 @@ let lastWord = pathName.split("/").pop()
             </li>
             <li class="header__link">
                 <a class={
-                    pathName === 'https://portfolio-gustavo-alpha.vercel.app/about'
+                    pathName === about
                     ? 'link-active'
-                    : pathName === 'https://portfolio-gustavo-alpha.vercel.app/sobre-mi'
+                    : pathName === about
                     ? 'link-active'
                     : ''
                 } 
