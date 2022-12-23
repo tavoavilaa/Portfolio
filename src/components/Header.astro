@@ -64,7 +64,14 @@ let pathName = Astro.url.pathname;
 
 <header id="header" class="header container glass glass--head">
     <p class="header__title elemento">
-        <a href="/"><img src={logo} alt="logo"></a>
+        <a href={
+            pathName === '/about'
+            ? '/'
+            : pathName === '/sobre-mi'
+            ? '/es'
+            : '/'
+            
+        }><img src={logo} alt="logo"></a>
     </p>
     <label for="burger" class="menu-button burger elemento">
         <input id="burger" type="checkbox" />
@@ -124,6 +131,8 @@ let pathName = Astro.url.pathname;
                     ? '/about'
                     : pathName === '/sobre-mi'
                     ? '/about'
+                    : pathName === '/es'
+                    ? '/'
                     : '/'
                 }>EN</option>
                 <option class="es-select" value={
@@ -131,6 +140,8 @@ let pathName = Astro.url.pathname;
                     ? '/sobre-mi'
                     : pathName === '/sobre-mi'
                     ? '/sobre-mi'
+                    : pathName === '/'
+                    ? '/es'
                     : '/es'
                 }>ES</option>
             </select>
@@ -175,6 +186,8 @@ let pathName = Astro.url.pathname;
         font-size: 1.8rem;
         color: var(--white);
         margin: 0;
+        position: relative;
+        z-index: 1;
     }
 
     .header__title a{
