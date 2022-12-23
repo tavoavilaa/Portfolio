@@ -9,16 +9,16 @@ export interface Props {
     home: string;
     about: string;
     langCV: string;
-    select: object
 
 }
 
-const { links, home, about, langCV, select } = Astro.props;
+const { links, home, about, langCV } = Astro.props;
 
 
 let pathName = Astro.url.pathname;
 
 let lastWord = pathName.split("/").pop()
+
 
 ---
 
@@ -34,19 +34,6 @@ let lastWord = pathName.split("/").pop()
        
     });
 
-    if (window.location.href == 'https://portfolio-gustavo-alpha.vercel.app/about') {
-
-        selectEn.value = select[0]
-    }else{
-        selectEn.value = select[1]
-    }
-
-    if (window.location.href == 'https://portfolio-gustavo-alpha.vercel.app/sobre-mi') {
-
-    selectEs.value = select[0]
-    }else{
-    selectEs.value = select[1]
-    }
  
 
     if (window.location.href.includes('es') || window.location.href.includes('sobre-mi')) {
@@ -141,8 +128,8 @@ let lastWord = pathName.split("/").pop()
            
         </div>
             <select>
-                <option class="en-select" value={select}>EN</option>
-                <option class="es-select" value={select}>ES</option>
+                <option class="en-select" value="/">EN</option>
+                <option class="es-select" value="/es">ES</option>
             </select>
        
    

@@ -7,10 +7,9 @@ import cvEn from "../img/CV-Gustavo-Avila-EN.pdf";
 export interface Props {
 	title: string;
 	description: string;
-	select: object;
 }
 
-const { title, description, select } = Astro.props;
+const { title, description } = Astro.props;
 
 let pathName = Astro.url.pathname;
 
@@ -55,7 +54,7 @@ let lastWord = pathName.split("/").pop()
 			<span></span>
 			<span></span>
 		 </div>
-        <Header home="/" about="/about" langCV={cvEn} select={select} links={["WORK","ABOUT","RESUME","CONTACT",]}/>
+        <Header home="/" about="/about" langCV={cvEn} links={["WORK","ABOUT","RESUME","CONTACT",]}/>
 		<slot/>
         <Footer footerText1="Web app designed and coded by"  footerText2="using React.js ⚛️ + Astro 🚀." />
 		
