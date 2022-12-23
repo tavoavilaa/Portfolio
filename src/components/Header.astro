@@ -113,8 +113,8 @@ let lastWord = pathName.split("/").pop()
            
         </div>
             <select>
-                <option class="en-select" value="/">EN</option>
-                <option class="es-select" value="/es">ES</option>
+                <option class="en-select" value={pathName.includes("sobre-mi") ? 'about' : '/'}>EN</option>
+                <option class="es-select" value={pathName.includes("about") ? 'sobre-mi' : 'es'}>ES</option>
             </select>
        
    
