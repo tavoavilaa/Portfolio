@@ -7,9 +7,10 @@ export interface Props {
 	primaryBtn: string;
 	secundaryBtn: string;
 	langCV: string;
+    lang: string
 }
 
-const { heading, primaryBtn, secundaryBtn, langCV } = Astro.props;
+const { heading, primaryBtn, secundaryBtn, langCV, lang } = Astro.props;
 ---
 
 <section class="hero container glass animate__animated animate__slideInUp animate__faster">
@@ -17,7 +18,7 @@ const { heading, primaryBtn, secundaryBtn, langCV } = Astro.props;
         <h1>Gustavo Avila</h1>
         <p class="hero__job"><span class="typewriter">{ heading }</span></p>
         <div class="hero__buttons animate__animated animate__fadeInUp animate__delay-2s	2s">
-            <a href="/about" class="btn__primary">
+            <a href={lang} class="btn__primary">
                 {primaryBtn} →
             </a>
             <a href={langCV} target="_blank" class="btn__secundary">
