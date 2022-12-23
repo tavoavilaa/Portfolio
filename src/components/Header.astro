@@ -17,6 +17,8 @@ const { links, home, about, langCV } = Astro.props;
 
 let pathName = Astro.url.pathname;
 
+let lastWord = pathName.split("/").pop()
+
 ---
 
 <script>
@@ -65,11 +67,11 @@ let pathName = Astro.url.pathname;
 <header id="header" class="header container glass glass--head">
     <p class="header__title elemento">
         <a href={
-            pathName === '/about'
-            ? '/'
-            : pathName === '/sobre-mi'
-            ? '/es'
-            : '/'
+            lastWord.endsWith("about")
+                    ? '/'
+                    : '/es'
+               
+                 
             
         }><img src={logo} alt="logo"></a>
     </p>
@@ -127,20 +129,20 @@ let pathName = Astro.url.pathname;
         </div>
             <select>
                 <option class="en-select" value={
-                    pathName.includes('/about')
+                    lastWord.endsWith("about")
                     ? '/about'
-                    : pathName === '/sobre-mi'
+                    : lastWord.endsWith("sobre-mi")
                     ? '/about'
-                    : pathName === '/es'
+                    : lastWord.endsWith("es")
                     ? '/'
                     : '/'
                 }>EN</option>
                 <option class="es-select" value={
-                    pathName.includes('/about')
+                    lastWord.endsWith("about")
                     ? '/sobre-mi'
-                    : pathName.includes('/sobre-mi')
+                    : lastWord.endsWith("sobre-mi")
                     ? '/sobre-mi'
-                    : pathName === '/'
+                    : lastWord.endsWith("")
                     ? '/es'
                     : '/es'
                 }>ES</option>

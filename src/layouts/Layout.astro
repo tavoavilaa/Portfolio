@@ -14,6 +14,9 @@ const { title, description } = Astro.props;
 
 let pathName = Astro.url.pathname;
 
+let lastWord = pathName.split("/").pop()
+
+
 
 ---
 
@@ -53,19 +56,31 @@ let pathName = Astro.url.pathname;
 			<span></span>
 		 </div>
         {
-            pathName === '/'
-            ? <Header home="/" about="/about" langCV={cvEn} links={["WORK","ABOUT","RESUME","CONTACT",]}/>
-            : pathName === '/about'
-            ? <Header home="/" about="/about" langCV={cvEn} links={["WORK","ABOUT","RESUME","CONTACT",]}/>
-            : <Header home="/es" about="/sobre-mi" langCV={cv} links={["PORTAFOLIO","SOBRE MÍ","HOJA DE VIDA","CONTACTO",]}/>
+        
+           
+            lastWord.endsWith("about")
+                    ? <Header home="/" about="/about" langCV={cvEn} links={["WORK","ABOUT","RESUME","CONTACT",]}/>
+                    : lastWord.endsWith("sobre-mi")
+                    ?  <Header home="/es" about="/sobre-mi" langCV={cv} links={["PORTAFOLIO","SOBRE MÍ","HOJA DE VIDA","CONTACTO",]}/>
+                    : lastWord.endsWith("es")
+                    ? <Header home="/es" about="/sobre-mi" langCV={cv} links={["PORTAFOLIO","SOBRE MÍ","HOJA DE VIDA","CONTACTO",]}/>
+                    : <Header home="/" about="/about" langCV={cvEn} links={["WORK","ABOUT","RESUME","CONTACT",]}/>
         }
 		<slot/>
         {
-            pathName === '/'
-            ? <Footer footerText1="Web app designed and coded by"  footerText2="using React.js ⚛️ + Astro 🚀." />
-            : pathName === '/about'
-            ? <Footer footerText1="Web app designed and coded by"  footerText2="using React.js ⚛️ + Astro 🚀." />
-            : <Footer footerText1="Web app diseñada y programada por" footerText2="usando React.js ⚛️ + Astro 🚀."/> 
+
+                lastWord.endsWith("about")
+                    ? <Footer footerText1="Web app designed and coded by"  footerText2="using React.js ⚛️ + Astro 🚀." /> 
+                    : lastWord.endsWith("sobre-mi")
+                    ?  <Footer footerText1="Web app diseñada y programada por" footerText2="usando React.js ⚛️ + Astro 🚀."/>
+                    : lastWord.endsWith("es")
+                    ? <Footer footerText1="Web app diseñada y programada por" footerText2="usando React.js ⚛️ + Astro 🚀."/>
+                    : <Footer footerText1="Web app designed and coded by"  footerText2="using React.js ⚛️ + Astro 🚀." />
+
+            
+
+             
+        
         }
 		
 		
