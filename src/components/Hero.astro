@@ -1,18 +1,27 @@
 ---
 import dummie from '../img/hero-dummie.png';
-import cv from "../img/CV-Gustavo-Avila.pdf";
+
+
+export interface Props {
+	heading: string;
+	primaryBtn: string;
+	secundaryBtn: string;
+	langCV: string;
+}
+
+const { heading, primaryBtn, secundaryBtn, langCV } = Astro.props;
 ---
 
 <section class="hero container glass animate__animated animate__slideInUp animate__faster">
     <div class="hero__title">
-        <h1 class="animate__animated animate__fadeInUp animate__delay-1s	1s">Gustavo Avila</h1>
-        <p class="animate__animated animate__fadeInDown animate__delay-2s	2s">Front-end Developer | UI | UX </p>
+        <h1>Gustavo Avila</h1>
+        <p class="hero__job"><span class="typewriter">{ heading }</span></p>
         <div class="hero__buttons animate__animated animate__fadeInUp animate__delay-2s	2s">
             <a href="/about" class="btn__primary">
-                Read more →
+                {primaryBtn} →
             </a>
-            <a href={cv} target="_blank" class="btn__secundary">
-                Resume →
+            <a href={langCV} target="_blank" class="btn__secundary">
+                {secundaryBtn} →
             </a>
         </div>
     </div>
@@ -97,6 +106,15 @@ import cv from "../img/CV-Gustavo-Avila.pdf";
             margin-bottom: 40px;
         }
     }
+
+    @-webkit-keyframes typing { from { width: 0; } }
+    @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+    .hero__job { 
+	font-family: Consolas, Monaco, monospace;
+	
+}
+
 
    
 </style>

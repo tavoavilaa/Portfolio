@@ -16,6 +16,12 @@ import tailwind from "../img/tailwind.png";
 import react from "../img/react.png";
 import vue from "../img/vue.png";
 
+export interface Props {
+	action: string;
+}
+
+const { action } = Astro.props;
+
 
 
 const data = [
@@ -32,19 +38,19 @@ const data = [
     url: "https://lambent-custard-4f52d2.netlify.app"
   },
   {
-    name: "Veterinary",
+    name: "Veterinary appointments",
     image: P3,
     language: [html, css, js, tailwind, react],
     url: "https://dulcet-florentine-55ca2e.netlify.app"
   },
   {
-    name: "Insurance",
+    name: "Car Insurance",
     image: P4,
     language: [html, css, js, tailwind, react],
     url: "https://tubular-cassata-010a65.netlify.app"
   },
   {
-    name: "Cripto",
+    name: "Cripto Viewer",
     image: P5,
     language: [html, css, js, tailwind, react],
     url: "https://luminous-cascaron-47daa8.netlify.app"
@@ -90,7 +96,7 @@ const data = [
             <img class="projects__icon" src={project.language[3]} alt="" />
             {project.language[4] && <img class="projects__icon" src={project.language[4]} alt="" />}
           </div>
-          <a href={project.url} class="btn__primary" rel="noopener noreferrer" target="_blank">View more →</a>
+          <button class="btn__secundary"><a target="_blank" rel="noopener noreferrer" href={project.url}>{ action } →</a></button>
         </div>
       </div>
     ))
@@ -136,5 +142,11 @@ const data = [
 
   .projects__icon {
     width: 32px;
+  }
+
+
+ .btn__secundary a{
+    color: var(--white);
+    text-decoration: none;
   }
 </style>

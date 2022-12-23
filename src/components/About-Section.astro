@@ -3,6 +3,15 @@ import avatar from '../img/avatar.png';
 import frontend from '../img/meta-badge.png';
 import ibm from '../img/ibm-badge.png';
 
+export interface Props {
+	saludo: string;
+	p1: string;
+	p2: string;
+	p3: string;
+}
+
+const { saludo, p1, p2, p3 } = Astro.props;
+
 ---
 
 <section class="about container glass animate__animated animate__slideInUp animate__faster">
@@ -11,13 +20,13 @@ import ibm from '../img/ibm-badge.png';
     </div>
     <div class="about__title">
         
-        <h1 class="animate__animated animate__fadeInUp animate__delay-1s	1s">HEY THERE!</h1>
+        <h1 class="animate__animated animate__fadeInUp animate__delay-1s	1s">{ saludo }</h1>
 
-        <p>I am a front-end developer with experience in interface design, working remotely for Avaya from Bogota. I studied computer engineering and advertising in Venezuela graduating from the latter. I am specialized in the interaction that users have with the web platform, from its design to its development as well as usability, performance, and accessibility.</p>
+        <p>{ p1}</p>
 
-        <p>I am passionate about digital transformation, and multimedia experiences such as VR, AR, and mobile development.</p>
+        <p>{ p2 }</p>
 
-        <p>When I'm not developing, you can find me jumping rope at the gym 💪🏽, playing Valorant 🎮, or watching soccer ⚽️.</p>
+        <p>{ p3 }</p>
 
         <div class="about__badge">
             <img class="about__badge__icon" src={frontend} alt="meta frontend developer badge">

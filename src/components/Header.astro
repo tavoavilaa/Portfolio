@@ -1,12 +1,50 @@
 ---
 import logo from "../img/logo-g.png";
-import cv from "../img/CV-Gustavo-Avila.pdf";
+
 import linkedin from "../img/linkedin.png";
 import github from "../img/github.png";
+
+export interface Props {
+	links: object;
+    home: string;
+    about: string;
+    langCV: string;
+
+}
+
+const { links, home, about, langCV } = Astro.props;
+
 
 let pathName = Astro.url.pathname;
 
 ---
+
+<script>
+
+    let select = document.querySelector('select');
+    let selectEs = document.querySelector('.es-select') 
+    let selectEn = document.querySelector('.en-select') 
+
+    select.addEventListener('change', function() {
+
+        window.location.href = select.value;
+       
+    });
+
+
+ 
+
+    if (window.location.href.includes('es') || window.location.href.includes('sobre-mi')) {
+         
+        selectEs.setAttribute('selected', 'true');
+
+    }else{
+        
+        selectEn.setAttribute('selected', 'true');
+    }
+
+    
+</script>
 <script>
     const menu = document.querySelector('.menu');
     const checkbox = document.querySelector('input[type="checkbox"]');
@@ -24,7 +62,7 @@ let pathName = Astro.url.pathname;
 
 </script>
 
-<header id="header" class="header container glass animate__animated animate__slideInDown">
+<header id="header" class="header container glass glass--head">
     <p class="header__title elemento">
         <a href="/"><img src={logo} alt="logo"></a>
     </p>
@@ -35,30 +73,69 @@ let pathName = Astro.url.pathname;
         <span></span>
     </label>
    
-    <nav class="menu header__nav-menu animate__animated animate__faster">
+    <nav class="menu header__nav-menu">
         <ul class="header__list">
             <li class="header__link">
-                <a class={pathName === '/' ? 'link-active' : ''} href="/">Work</a>
+                <a 
+                class={
+                pathName === '/'
+                ? 'link-active'
+                : pathName === '/es'
+                ? 'link-active'
+                : ''
+                } 
+                href={home}>{links[0]}
+            </a>
             </li>
             <li class="header__link">
-                <a class={pathName.includes('about') ? 'link-active' : ''} href="/about">About</a>
+                <a class={
+                    pathName === '/about'
+                    ? 'link-active'
+                    : pathName === '/sobre-mi'
+                    ? 'link-active'
+                    : ''
+                } 
+                href={about}>{links[1]}
+            </a>
             </li>
             <li class="header__link">
-                <a rel="noopener noreferrer" target="_blank" href={cv}>Resume</a>
+                <a rel="noopener noreferrer" target="_blank" href={langCV}>{links[2]}</a>
             </li>
             <li class="header__link">
-                <a href="mailto:info.gustavoavila@gmail.com"  rel="noopener noreferrer" target="_blank">Contact</a>
+                <a href="mailto:info.gustavoavila@gmail.com"  rel="noopener noreferrer" target="_blank">{links[3]}</a>
             </li>
         </ul>
 
         <div class=" header__rrss elemento">
+          
+
             <a href="https://github.com/tavoavilaa" rel="noopener noreferrer" target="_blank">
                 <img src={github} alt="">
             </a>
             <a  href="https://www.linkedin.com/in/gustavo-avila-2a153311b/" rel="noopener noreferrer" target="_blank">
                 <img src={linkedin} alt="">
             </a>
+
+           
         </div>
+            <select>
+                <option class="en-select" value={
+                    pathName === '/about'
+                    ? '/about'
+                    : pathName === '/sobre-mi'
+                    ? '/about'
+                    : '/'
+                }>EN</option>
+                <option class="es-select" value={
+                    pathName === '/about'
+                    ? '/sobre-mi'
+                    : pathName === '/sobre-mi'
+                    ? '/sobre-mi'
+                    : '/es'
+                }>ES</option>
+            </select>
+       
+   
         
     </nav>
 
@@ -133,6 +210,7 @@ let pathName = Astro.url.pathname;
         color: var(--white);
         text-transform: uppercase;
         transition: all .3s ease;
+        text-align: center;
     }
 
     @media (max-width: 991.98px){
@@ -142,18 +220,36 @@ let pathName = Astro.url.pathname;
     }
 
     .header__link a:hover{
-        text-shadow: 0 0 5px #fff6ff, 0 0 8px #fff6ff;
         transition: all .3s ease;
+        color: var(--primary);
+        
     }
 
     .link-active{
         color: var(--primary) !important;
-        border-bottom: 1px solid var(--secundary);
-        padding: 8px 12px;
+        padding: 0px 12px;
+        position: relative;
+        text-align: center;
+
+        
     }
 
-    .link-active:hover{
-        text-shadow: 0 0 5px var(--terciary), 0 0 8px var(--terciary) !important;
+    .link-active::before{
+        content: "";
+        position: absolute;
+        top: -34px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 4px;
+        background: var(--primary);
+        box-shadow: 0 0 5px var(--terciary), 0 0 15px var(--terciary), 0 0 30px var(--terciary), 0 0 60px var(--terciary);
+    }
+
+  
+
+    .header__rrss a{
+        text-decoration: none;
     }
 
     .header__rrss a img{
@@ -232,6 +328,7 @@ let pathName = Astro.url.pathname;
 .header__nav-menu {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 40px;
 }
 
@@ -272,5 +369,45 @@ let pathName = Astro.url.pathname;
         }
 
     }
+
+
+  
+  select{
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    display: block;
+    width: 64px;
+    font-size: 16px;
+    color: var(--primary);
+    padding: 8px 16px;
+    text-align: center;
+    position: relative;
+    transition: all .5s ease;
+}
+  select option::after{
+    content: "↓";
+    color: white;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  select:hover{
+    transition: all .5s ease;
+    background: var(--primary);
+    box-shadow: 0 0 20px 5px rgba(0, 236, 157, 0.2);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    color: #000;
+  }
+
+
 
 </style>

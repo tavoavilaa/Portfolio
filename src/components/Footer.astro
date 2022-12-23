@@ -1,9 +1,15 @@
 ---
+export interface Props {
+	footerText1: string;
+	footerText2: string;
+}
+
+const { footerText1,  footerText2} = Astro.props;
 ---
 
 <footer id="footer" class="footer container glass animate__animated animate__slideInUp animate__faster">
     <p class="footer__text">
-        © {new Date().getFullYear()} — Web app designed and coded by <a href="https://www.linkedin.com/in/gustavo-avila-2a153311b/"  rel="noopener noreferrer" target="_blank">Gustavo Avila</a> using React.js ⚛️ + Astro 🚀.
+        © {new Date().getFullYear()} — {footerText1} <a href="https://www.linkedin.com/in/gustavo-avila-2a153311b/"  rel="noopener noreferrer" target="_blank">Gustavo Avila</a> {footerText2}
     </p>
     
 </footer>

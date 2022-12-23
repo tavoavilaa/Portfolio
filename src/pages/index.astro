@@ -2,13 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
+import cv from "../img/CV-Gustavo-Avila-EN.pdf";
+
 ---
 
 <Layout 
 	title="Work | Gustavo Avila" 
-	description="I’m a frontend developer with a user interface design background working remotely at Avaya. I'm specialized in the full interaction that users have with the web applications, from its design to its development, as well as usability, performance and a11y.">
-	<Hero/>
-	<Projects />
+	description="I’m a frontend developer with a user interface design background working remotely at Avaya. I'm specialized in the full interaction that users have with the web applications, from its design to its development, as well as usability, performance and a11y."
+	>
+	<Hero 
+		heading="Front-end Developer"  
+		primaryBtn="Read more"  
+		secundaryBtn="Resume"
+		langCV={cv}  
+	/>
+	<Projects action="View more" />
 </Layout>
 
 <style>
