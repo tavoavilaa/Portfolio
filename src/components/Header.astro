@@ -164,6 +164,13 @@ let pathName = Astro.url.pathname;
         padding-bottom: 8px;
     }
 
+    @media (max-width: 991.98px){
+        .header{
+        padding-top: 16px;
+        padding-bottom: 24px;
+        }
+    }
+
     .header__title{
         font-size: 1.8rem;
         color: var(--white);
@@ -244,6 +251,14 @@ let pathName = Astro.url.pathname;
         height: 4px;
         background: var(--primary);
         box-shadow: 0 0 5px var(--terciary), 0 0 15px var(--terciary), 0 0 30px var(--terciary), 0 0 60px var(--terciary);
+    }
+
+    @media (max-width: 991.98px){
+        .link-active::before{
+            top: initial;
+            height: 2px;
+            bottom: -8px;
+        }
     }
 
   
@@ -380,7 +395,7 @@ let pathName = Astro.url.pathname;
     appearance: none;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 0;
+    margin: 0 auto;
     display: block;
     width: 64px;
     font-size: 16px;
@@ -407,6 +422,8 @@ let pathName = Astro.url.pathname;
     transition: all 0.2s ease-out;
     color: #000;
   }
+
+
 
 
 
