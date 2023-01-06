@@ -1,12 +1,9 @@
 ---
-import P1 from "../img/Avaya-Gitex-2021.jpg";
 import P2 from "../img/Avaya-Spaces-OnBoarding.jpg";
 import P3 from "../img/citas-veterinaria.jpg";
 import P4 from "../img/Cotizador-Seguros.jpg";
-import P5 from "../img/Cotizador-Cripto.jpg";
 import P6 from "../img/PokeGame.jpg";
 import P7 from "../img/Avaya-Mexico.jpg";
-import P8 from "../img/real-state-LP.jpg";
 import P9 from "../img/toDo.jpg";
 import html from "../img/html.png";
 import css from "../img/css.png";
@@ -18,19 +15,15 @@ import vue from "../img/vue.png";
 
 export interface Props {
 	action: string;
+	tech: string;
 }
 
-const { action } = Astro.props;
+const { action, tech } = Astro.props;
 
 
 
 const data = [
-  {
-    name: "Avaya Gitex 2021",
-    image: P1,
-    language: [html, css, js, boostrap],
-    url: "https://splendorous-sundae-df8790.netlify.app"
-  },
+
   {
     name: "Avaya Spaces Landing Page",
     image: P2,
@@ -44,35 +37,25 @@ const data = [
     url: "https://dulcet-florentine-55ca2e.netlify.app"
   },
   {
-    name: "Car Insurance",
+    name: "Redux App Car Insurance",
     image: P4,
     language: [html, css, js, tailwind, react],
     url: "https://tubular-cassata-010a65.netlify.app"
   },
+
   {
-    name: "Cripto Viewer",
-    image: P5,
-    language: [html, css, js, tailwind, react],
-    url: "https://luminous-cascaron-47daa8.netlify.app"
-  },
-  {
-    name: "PokeGame",
+    name: "Vue App PokeGame",
     image: P6,
     language: [html, css, js, vue],
     url: "https://chic-belekoy-9dad76.netlify.app"
   },
   {
-    name: "Avaya Mexico Tour",
+    name: "Avaya Mexico Tour Microsite",
     image: P7,
     language: [html, css, js, boostrap],
     url: "https://ornate-starship-0f56d8.netlify.app"
   },
-  {
-    name: "Real State Landing Page",
-    image: P8,
-    language: [html, css, js, boostrap],
-    url: "https://determined-lewin-ee6902.netlify.app"
-  },
+
   {
     name: "React ToDo List",
     image: P9,
@@ -82,26 +65,27 @@ const data = [
 ];
 ---
 
-<section class="container-fluid projects animate__animated animate__slideInUp animate__delay-2s	3s">
+<main class="container-fluid projects animate__animated animate__slideInUp animate__delay-2s	3s">
   {
     data?.map((project) => (
-      <div class="glass projects__card">
+      <article class="glass projects__card">
         <img class="projects__img" src={project.image} alt={project.name} />
-        <h3 class="projects__title">{project.name}</h3>
-        <div class="projects__info">
+          <h3 class="projects__title">{project.name}</h3>
+          <div class="projects__info">
           <div class="projects__languages">
-            <img class="projects__icon" src={project.language[0]} alt="" />
-            <img class="projects__icon" src={project.language[1]} alt="" />
-            <img class="projects__icon" src={project.language[2]} alt="" />
-            <img class="projects__icon" src={project.language[3]} alt="" />
-            {project.language[4] && <img class="projects__icon" src={project.language[4]} alt="" />}
+            <p class="tech">{ tech }</p>
+              <img class="projects__icon" src={project.language[0]} alt="" />
+              <img class="projects__icon" src={project.language[1]} alt="" />
+              <img class="projects__icon" src={project.language[2]} alt="" />
+              <img class="projects__icon" src={project.language[3]} alt="" />
+              {project.language[4] && <img class="projects__icon" src={project.language[4]} alt="" />}
           </div>
           <button class="btn__secundary"><a target="_blank" rel="noopener noreferrer" href={project.url}>{ action } →</a></button>
         </div>
-      </div>
+      </article>
     ))
   }
-</section>
+</main>
 
 <style>
   .projects {
@@ -132,6 +116,15 @@ const data = [
     text-align: center;
   }
 
+  .projects__title::after{
+    content: "";
+    display: block;
+    height: 1px;
+    width: 160px;
+    margin: 12px auto 0;
+    background-color: var(--terciary);
+  }
+
   .projects__info{
     text-align: center;
   }
@@ -148,5 +141,9 @@ const data = [
  .btn__secundary a{
     color: var(--white);
     text-decoration: none;
+  }
+
+  .tech{
+    color: var(--white);
   }
 </style>
