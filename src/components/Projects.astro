@@ -80,7 +80,7 @@ const data = [
               <img class="projects__icon" src={project.language[3]} alt="" />
               {project.language[4] && <img class="projects__icon" src={project.language[4]} alt="" />}
           </div>
-          <button class="btn__secundary"><a target="_blank" rel="noopener noreferrer" href={project.url}>{ action } →</a></button>
+          <a target="_blank" rel="noopener noreferrer" href={project.url}><button class="btn__secundary">{ action } →</button></a>
         </div>
       </article>
     ))
@@ -131,6 +131,10 @@ const data = [
 
   .projects__languages{
     margin-bottom: 24px;
+  }
+
+  .projects__info a button{
+    cursor: pointer;
   }
 
   .projects__icon {
