@@ -1,6 +1,7 @@
 ---
 import avatar from '../img/avatar.png';
 import frontend from '../img/meta-badge.png';
+import ios from '../img/meta-ios.png';
 
 export interface Props {
 	saludo: string;
@@ -29,7 +30,7 @@ const { saludo, p1, p2, p3 } = Astro.props;
 
         <div class="about__badge">
             <img class="about__badge__icon" src={frontend} alt="meta frontend developer badge">
-            <!-- <img class="about__badge__icon" src={ibm} alt="ibm fullstack developer badge"> -->
+            <img class="about__badge__icon" src={ios} alt="ibm fullstack developer badge">
         </div>
     </main>
 </section>
@@ -97,7 +98,7 @@ const { saludo, p1, p2, p3 } = Astro.props;
     }
 
     .about__badge__icon{
-        width: 80px;
+        width: 96px;
         border-radius: 4px;
 
     }
